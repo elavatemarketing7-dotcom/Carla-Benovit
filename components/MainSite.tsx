@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { EXPERT_INFO, HERO_PHOTOS, INTRO_VIDEO, GALLERY_IMAGES, HARMONY_BADGES, TESTIMONIAL_IMAGES } from '../constants';
+import { EXPERT_INFO, HERO_PHOTOS, INTRO_VIDEO, GALLERY_IMAGES, HARMONY_BADGES, TESTIMONIAL_IMAGES } from '../constants.ts';
 
 const MainSite: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -127,7 +127,6 @@ const MainSite: React.FC = () => {
         
         <p className="text-center text-[10px] text-gray-400 uppercase tracking-widest mt-8 mb-20">Resultados podem variar de pessoa para pessoa. Cada face é única.</p>
 
-        {/* Harmonização de 💚 Moved here */}
         <div className="max-w-6xl mx-auto mt-24">
             <h3 className="text-center text-2xl font-serif mb-10 text-rose-900">Harmonização de 💚</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">

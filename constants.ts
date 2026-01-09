@@ -1,5 +1,5 @@
 
-import { QuizQuestion } from './types';
+import { QuizQuestion } from './types.ts';
 
 export const EXPERT_INFO = {
   name: 'Carla Benovit',

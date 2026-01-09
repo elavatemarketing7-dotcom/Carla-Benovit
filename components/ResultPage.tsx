@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { EXPERT_INFO, HERO_PHOTOS } from '../constants';
-import { QuizAnswer } from '../types';
+import { EXPERT_INFO, HERO_PHOTOS } from '../constants.ts';
+import { QuizAnswer } from '../types.ts';
 
 interface ResultPageProps {
   onContinue: () => void;
@@ -20,7 +20,6 @@ const ResultPage: React.FC<ResultPageProps> = ({ onContinue, answers }) => {
 
   return (
     <div className="h-screen w-screen bg-rose-950 flex flex-col items-center justify-center p-4 text-white overflow-hidden relative">
-      {/* Abstract background shapes */}
       <div className="absolute top-0 right-0 w-48 h-48 bg-rose-800 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -mr-24 -mt-24"></div>
       <div className="absolute bottom-0 left-0 w-48 h-48 bg-pink-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 -ml-24 -mb-24"></div>
 

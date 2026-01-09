@@ -15,6 +15,8 @@
             scroll-behavior: smooth;
             background-color: #faf9f6;
             color: #1a1a1a;
+            margin: 0;
+            padding: 0;
         }
         .font-serif {
             font-family: 'Playfair Display', serif;
@@ -23,34 +25,50 @@
             font-family: 'Great Vibes', cursive;
         }
         .glass-effect {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
         .btn-glow:hover {
-            box-shadow: 0 0 20px rgba(225, 29, 72, 0.3);
+            box-shadow: 0 0 25px rgba(225, 29, 72, 0.4);
         }
-        /* Hide scrollbar for Chrome, Safari and Opera */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
-        /* Hide scrollbar for IE, Edge and Firefox */
         .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        #root:empty::before {
+            content: 'Carregando experiência premium...';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            font-family: 'Playfair Display', serif;
+            color: #4c0519;
+            font-size: 1.2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #faf9f6;
         }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
   }
 }
 </script>
 </head>
 <body>
     <div id="root"></div>
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>
