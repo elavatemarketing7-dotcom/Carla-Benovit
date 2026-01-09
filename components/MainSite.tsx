@@ -17,7 +17,7 @@ const MainSite: React.FC = () => {
     { name: 'Prova Visual', href: '#prova-visual' },
     { name: 'Harmonização de 💚', href: '#harmonizacao' },
     { name: 'Onde Encontrar', href: '#localizacao' },
-    { name: 'Contato', href: EXPERT_INFO.whatsapp, isExternal: true }
+    { name: 'Contato Direto', href: EXPERT_INFO.whatsapp, isExternal: true }
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -42,48 +42,63 @@ const MainSite: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Helper para renderizar os links do marquee
+  const renderLinks = () => (
+    <>
+      {navLinks.map((link, idx) => (
+        <a 
+          key={`${link.name}-${idx}`} 
+          href={link.href}
+          target={link.isExternal ? "_blank" : undefined}
+          rel={link.isExternal ? "noopener noreferrer" : undefined}
+          onClick={(e) => !link.isExternal && handleNavClick(e, link.href)}
+          className={`text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] transition-colors whitespace-nowrap py-1 px-4 ${
+            link.isExternal 
+            ? 'text-emerald-600 hover:text-emerald-500' 
+            : 'text-rose-900/60 hover:text-rose-900'
+          }`}
+        >
+          {link.name}
+        </a>
+      ))}
+      <span className="text-rose-200 px-2">•</span>
+    </>
+  );
+
   return (
     <div className="bg-[#faf9f6]">
-      {/* NAVEGAÇÃO COMPACTA */}
-      <nav className="fixed top-0 left-0 right-0 z-[40] glass-effect border-b border-rose-100/50 shadow-sm">
-        <div className="max-w-5xl mx-auto px-4">
-          <div className="flex items-center justify-between h-12 md:h-14">
+      {/* NAVEGAÇÃO COM EFEITO LOGRADOURO PASSANDO DEVAGAR */}
+      <nav className="fixed top-0 left-0 right-0 z-[40] glass-effect border-b border-rose-100/50 shadow-sm overflow-hidden">
+        <div className="max-w-6xl mx-auto flex items-center h-12 md:h-14">
+          {/* Logo Estática à Esquerda */}
+          <div className="pl-4 pr-6 bg-white/50 h-full flex items-center z-50 border-r border-rose-50 shadow-[5px_0_15px_rgba(0,0,0,0.02)]">
             <button 
               onClick={scrollToTop}
-              className="font-signature text-lg md:text-xl text-rose-900 whitespace-nowrap hover:scale-105 transition-transform"
+              className="font-signature text-lg md:text-xl text-rose-950 whitespace-nowrap hover:scale-105 transition-transform"
             >
               Dra. {EXPERT_INFO.name.split(' ')[0]}
             </button>
-            
-            <div className="flex overflow-x-auto no-scrollbar gap-3 md:gap-6 ml-4 items-center">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href}
-                  target={link.isExternal ? "_blank" : undefined}
-                  rel={link.isExternal ? "noopener noreferrer" : undefined}
-                  onClick={(e) => !link.isExternal && handleNavClick(e, link.href)}
-                  className={`text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-colors whitespace-nowrap py-1.5 ${
-                    link.isExternal 
-                    ? 'text-emerald-600 hover:text-emerald-500 font-black' 
-                    : 'text-rose-900/60 hover:text-rose-600'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              ))}
+          </div>
+          
+          {/* Container do Marquee */}
+          <div className="marquee-container flex-1">
+            <div className="marquee-content">
+              {renderLinks()}
+              {renderLinks()}
+              {renderLinks()}
+              {renderLinks()}
             </div>
           </div>
         </div>
       </nav>
 
-      {/* 1. HERO SECTION */}
-      <section className="relative min-h-[70vh] md:min-h-[85vh] flex flex-col items-center pt-20 md:pt-28 px-6 overflow-hidden">
+      {/* 1. HERO SECTION COMPACTO */}
+      <section id="inicio" className="relative min-h-[70vh] md:min-h-[85vh] flex flex-col items-center pt-24 md:pt-32 px-6 overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-rose-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -mr-20 -mt-20"></div>
         
         <div className="relative z-10 text-center mb-8 max-w-2xl">
           <p className="text-rose-800 font-bold text-[9px] tracking-[0.3em] uppercase mb-3">Especialista em Naturalidade</p>
-          <h1 className="text-3xl md:text-5xl font-serif text-rose-950 mb-3 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-serif text-rose-950 mb-3 leading-tight">
             Dra. Carla Benovit.
           </h1>
           <p className="text-sm md:text-lg text-rose-900/80 font-light leading-relaxed max-w-lg mx-auto italic px-4">
@@ -130,7 +145,7 @@ const MainSite: React.FC = () => {
           <div className="w-full md:w-7/12">
             <h2 className="text-2xl font-serif text-rose-950 mb-4 leading-tight">Sinta a Diferença</h2>
             <p className="text-sm text-gray-600 leading-relaxed mb-6">
-              Descubra como a beleza pode ser realçada with técnica e propósito. Resultados naturais e seguros por quem entende que cada detalhe importa.
+              Descubra como a beleza pode ser realçada com técnica e propósito. Resultados naturais e seguros por quem entende que cada detalhe importa.
             </p>
             <div className="flex items-center gap-3">
               <span className="text-lg">✨</span>
@@ -140,7 +155,7 @@ const MainSite: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. SOBRE MIM (VOLTANDO AO ALVO ORIGINAL) */}
+      {/* 3. SOBRE MIM */}
       <section id="sobre-mim" className="py-16 px-6 scroll-mt-20">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
           <div className="w-full md:w-1/2 relative">
@@ -164,7 +179,7 @@ const MainSite: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. PROVA VISUAL & HARMONIZAÇÃO DE 💚 */}
+      {/* 4. PROVA VISUAL */}
       <section id="prova-visual" className="py-16 px-6 bg-white overflow-hidden scroll-mt-20">
         <div className="max-w-5xl mx-auto text-center mb-10">
           <h2 className="text-3xl font-serif text-rose-950 mb-2">Transformações Reais</h2>
@@ -198,31 +213,6 @@ const MainSite: React.FC = () => {
                      </div>
                  ))}
             </div>
-        </div>
-      </section>
-
-      {/* 6. CTA */}
-      <section className="py-12 px-6 bg-rose-950 text-white text-center rounded-[3rem] mx-4 md:mx-auto max-w-4xl shadow-2xl">
-         <h2 className="text-2xl font-serif mb-6 px-4">Pronta para redescobrir sua melhor versão?</h2>
-         <button 
-            onClick={ctaClick}
-            className="px-8 py-4 bg-white text-rose-950 rounded-xl font-bold text-sm shadow-xl active:scale-95 transition-all"
-         >
-            FALAR NO WHATSAPP AGORA
-         </button>
-      </section>
-
-      {/* 8. DEPOIMENTOS */}
-      <section className="py-16 px-6 bg-[#faf9f6]">
-        <div className="max-w-5_5xl mx-auto">
-          <h2 className="text-center text-2xl font-serif mb-10 text-rose-950">Depoimentos</h2>
-          <div className="flex overflow-x-auto gap-4 pb-8 no-scrollbar">
-             {TESTIMONIAL_IMAGES.map((img, i) => (
-                 <div key={i} className="min-w-[200px] md:min-w-[320px] bg-white rounded-2xl overflow-hidden shadow-md border border-rose-50">
-                    <img src={img} alt="Testemunho" className="w-full h-full object-contain" />
-                 </div>
-             ))}
-          </div>
         </div>
       </section>
 
