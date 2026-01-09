@@ -15,6 +15,7 @@ const MainSite: React.FC = () => {
   const navLinks = [
     { name: 'Sobre Mim', href: '#sobre-mim' },
     { name: 'Prova Visual', href: '#prova-visual' },
+    { name: 'Comentários', href: '#comentarios' },
     { name: 'Harmonização de 💚', href: '#harmonizacao' },
     { name: 'Onde Encontrar', href: '#localizacao' },
     { name: 'Contato Direto', href: EXPERT_INFO.whatsapp, isExternal: true }
@@ -42,7 +43,6 @@ const MainSite: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Helper para renderizar os links do marquee
   const renderLinks = () => (
     <>
       {navLinks.map((link, idx) => (
@@ -67,10 +67,9 @@ const MainSite: React.FC = () => {
 
   return (
     <div className="bg-[#faf9f6]">
-      {/* NAVEGAÇÃO COM EFEITO LOGRADOURO PASSANDO DEVAGAR */}
+      {/* NAVEGAÇÃO MARQUEE */}
       <nav className="fixed top-0 left-0 right-0 z-[40] glass-effect border-b border-rose-100/50 shadow-sm overflow-hidden">
         <div className="max-w-6xl mx-auto flex items-center h-12 md:h-14">
-          {/* Logo Estática à Esquerda */}
           <div className="pl-4 pr-6 bg-white/50 h-full flex items-center z-50 border-r border-rose-50 shadow-[5px_0_15px_rgba(0,0,0,0.02)]">
             <button 
               onClick={scrollToTop}
@@ -79,8 +78,6 @@ const MainSite: React.FC = () => {
               Dra. {EXPERT_INFO.name.split(' ')[0]}
             </button>
           </div>
-          
-          {/* Container do Marquee */}
           <div className="marquee-container flex-1">
             <div className="marquee-content">
               {renderLinks()}
@@ -92,20 +89,16 @@ const MainSite: React.FC = () => {
         </div>
       </nav>
 
-      {/* 1. HERO SECTION COMPACTO */}
+      {/* 1. HERO SECTION */}
       <section id="inicio" className="relative min-h-[70vh] md:min-h-[85vh] flex flex-col items-center pt-24 md:pt-32 px-6 overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-rose-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -mr-20 -mt-20"></div>
-        
         <div className="relative z-10 text-center mb-8 max-w-2xl">
           <p className="text-rose-800 font-bold text-[9px] tracking-[0.3em] uppercase mb-3">Especialista em Naturalidade</p>
-          <h1 className="text-4xl md:text-6xl font-serif text-rose-950 mb-3 leading-tight">
-            Dra. Carla Benovit.
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-serif text-rose-950 mb-3 leading-tight">Dra. Carla Benovit.</h1>
           <p className="text-sm md:text-lg text-rose-900/80 font-light leading-relaxed max-w-lg mx-auto italic px-4">
             Preservando sua essência com resultados que elevam sua autoestima sem exageros.
           </p>
         </div>
-
         <div className="relative z-10 w-full max-w-[280px] md:max-w-xs mx-auto mb-8">
           <div className="relative overflow-hidden rounded-[2.5rem] shadow-xl border-4 border-white">
             <img src={HERO_PHOTOS[0]} alt="Dra Carla Benovit" className="w-full h-auto object-cover" />
@@ -114,12 +107,8 @@ const MainSite: React.FC = () => {
             <span className="block text-[8px] font-bold uppercase tracking-wider">Últimas vagas</span>
           </div>
         </div>
-
         <div className="relative z-10 w-full max-w-xs flex flex-col items-center pb-8">
-            <button 
-                onClick={ctaClick}
-                className="w-full py-4 bg-rose-600 text-white rounded-xl font-bold text-sm shadow-lg btn-glow transition-all active:scale-95"
-            >
+            <button onClick={ctaClick} className="w-full py-4 bg-rose-600 text-white rounded-xl font-bold text-sm shadow-lg btn-glow transition-all active:scale-95">
                 AGENDAR CONSULTA AGORA
             </button>
         </div>
@@ -130,23 +119,12 @@ const MainSite: React.FC = () => {
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
           <div className="w-full md:w-5/12">
             <div className="relative rounded-[2rem] overflow-hidden shadow-lg aspect-video flex items-center justify-center bg-rose-50 border-2 border-rose-50">
-              <video 
-                src={INTRO_VIDEO} 
-                controls 
-                loop
-                muted
-                autoPlay
-                playsInline
-                className="w-full h-full object-cover"
-                poster={HERO_PHOTOS[1]}
-              ></video>
+              <video src={INTRO_VIDEO} controls loop muted autoPlay playsInline className="w-full h-full object-cover" poster={HERO_PHOTOS[1]}></video>
             </div>
           </div>
           <div className="w-full md:w-7/12">
             <h2 className="text-2xl font-serif text-rose-950 mb-4 leading-tight">Sinta a Diferença</h2>
-            <p className="text-sm text-gray-600 leading-relaxed mb-6">
-              Descubra como a beleza pode ser realçada com técnica e propósito. Resultados naturais e seguros por quem entende que cada detalhe importa.
-            </p>
+            <p className="text-sm text-gray-600 leading-relaxed mb-6">Descubra como a beleza pode ser realçada com técnica e propósito. Resultados naturais e seguros por quem entende que cada detalhe importa.</p>
             <div className="flex items-center gap-3">
               <span className="text-lg">✨</span>
               <p className="text-[10px] font-bold text-rose-900 uppercase tracking-tight">Técnica Exclusiva Carla Benovit</p>
@@ -165,14 +143,10 @@ const MainSite: React.FC = () => {
           <div className="w-full md:w-1/2 text-left">
             <p className="text-rose-700 font-bold text-[9px] tracking-widest uppercase mb-3">Minha História</p>
             <h2 className="text-3xl font-serif text-rose-950 mb-6 leading-tight">Muito além de preencher, é sobre rejuvenescer.</h2>
-            <p className="text-sm text-gray-700 mb-6 leading-relaxed">
-                Me especializei em Harmonização Facial em Palotina/PR buscando o equilíbrio perfeito entre ciência e arte facial, focando sempre na naturalidade do seu rosto.
-            </p>
+            <p className="text-sm text-gray-700 mb-6 leading-relaxed">Me especializei em Harmonização Facial em Palotina/PR buscando o equilíbrio perfeito entre ciência e arte facial, focando sempre na naturalidade do seu rosto.</p>
             <ul className="grid grid-cols-1 gap-3">
                 {["Avaliação diagnóstica profunda", "Produtos certificados", "Naturalidade em 1º lugar", "Acompanhamento VIP"].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2 text-rose-900 font-semibold text-xs">
-                        <span className="text-rose-500">✔</span> {item}
-                    </li>
+                    <li key={i} className="flex items-center gap-2 text-rose-900 font-semibold text-xs"><span className="text-rose-500">✔</span> {item}</li>
                 ))}
             </ul>
           </div>
@@ -185,30 +159,60 @@ const MainSite: React.FC = () => {
           <h2 className="text-3xl font-serif text-rose-950 mb-2">Transformações Reais</h2>
           <p className="text-xs text-gray-500 italic">Harmonizando sem alterar sua essência.</p>
         </div>
-
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
           {GALLERY_IMAGES.slice(0, 8).map((img, i) => (
-            <div 
-              key={i} 
-              onClick={() => openGallery(img)}
-              className="group relative cursor-zoom-in rounded-2xl overflow-hidden shadow-sm aspect-square"
-            >
+            <div key={i} onClick={() => openGallery(img)} className="group relative cursor-zoom-in rounded-2xl overflow-hidden shadow-sm aspect-square">
                 <img src={img} alt={`Resultado ${i}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-rose-900/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
           ))}
         </div>
-        
-        {/* HARMONIZAÇÃO DE 💚 */}
-        <div id="harmonizacao" className="max-w-5xl mx-auto mt-16 scroll-mt-24 border-t border-rose-50 pt-12">
+      </section>
+
+      {/* NOVO: ÁREA DE COMENTÁRIOS DE PACIENTES */}
+      <section id="comentarios" className="py-16 px-6 bg-[#faf9f6] scroll-mt-20">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-rose-700 font-bold text-[9px] tracking-widest uppercase mb-3">Satisfação Garantida</p>
+            <h2 className="text-3xl font-serif text-rose-950 mb-3">Voz de Quem Viveu a Transformação</h2>
+            <p className="text-xs text-gray-500 max-w-md mx-auto italic">O maior reconhecimento do nosso trabalho é o brilho no olhar e a gratidão de nossas pacientes.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+             {TESTIMONIAL_IMAGES.map((img, i) => (
+                 <div 
+                    key={i} 
+                    onClick={() => openGallery(img)}
+                    className="group bg-white p-3 rounded-[2rem] shadow-md border border-rose-50 transition-all hover:-translate-y-1 hover:shadow-xl cursor-zoom-in"
+                 >
+                    <div className="overflow-hidden rounded-[1.5rem] bg-gray-50 flex items-center justify-center min-h-[250px]">
+                        <img src={img} alt="Comentário Paciente" className="w-full h-full object-contain" />
+                    </div>
+                    <div className="mt-4 flex items-center justify-between px-2">
+                        <div className="flex gap-1">
+                            {[1,2,3,4,5].map(s => <span key={s} className="text-rose-400 text-[10px]">★</span>)}
+                        </div>
+                        <span className="text-[9px] font-black text-rose-900/40 uppercase tracking-tighter">Paciente Verificada</span>
+                    </div>
+                 </div>
+             ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+             <button onClick={ctaClick} className="text-[10px] font-black text-rose-800 uppercase tracking-widest border-b border-rose-200 pb-1 hover:text-rose-600 transition-colors">
+                Quero viver essa transformação também →
+             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* HARMONIZAÇÃO DE 💚 */}
+      <section id="harmonizacao" className="py-16 px-6 bg-white scroll-mt-20">
+        <div className="max-w-5xl mx-auto">
             <h3 className="text-center text-xl font-serif mb-8 text-rose-900">Harmonização de 💚</h3>
             <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-2">
                  {HARMONY_BADGES.map((img, i) => (
-                     <div 
-                        key={i} 
-                        className="rounded-xl overflow-hidden border border-rose-50 bg-white p-1 hover:shadow-md transition-shadow"
-                        onClick={() => openGallery(img)}
-                     >
+                     <div key={i} className="rounded-xl overflow-hidden border border-rose-50 bg-white p-1 hover:shadow-md transition-shadow" onClick={() => openGallery(img)}>
                         <img src={img} alt="Badge" className="w-full aspect-square object-cover rounded-lg" />
                      </div>
                  ))}
@@ -216,29 +220,18 @@ const MainSite: React.FC = () => {
         </div>
       </section>
 
-      {/* 9. LOCALIZAÇÃO */}
+      {/* LOCALIZAÇÃO */}
       <section id="localizacao" className="py-16 px-6 bg-white scroll-mt-20">
         <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-2xl font-serif text-rose-950 mb-6">Onde nos Encontrar</h2>
             <div className="w-full h-[300px] md:h-[400px] rounded-[2rem] overflow-hidden shadow-lg border border-rose-50 mb-4">
-                <iframe 
-                    src={EXPERT_INFO.addressEmbed} 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
-                    loading="lazy"
-                ></iframe>
+                <iframe src={EXPERT_INFO.addressEmbed} width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
             </div>
             <p className="text-xs text-gray-500 font-medium mb-12">📍 {EXPERT_INFO.location} - Paraná</p>
-
             <div className="bg-rose-50 p-8 rounded-[2.5rem] max-w-2xl mx-auto">
                 <h3 className="text-2xl font-serif text-rose-950 mb-3">Sua consulta exclusiva</h3>
                 <p className="text-rose-900 text-xs mb-6 italic">Análise facial profunda em ambiente acolhedor e seguro.</p>
-                <button 
-                    onClick={ctaClick}
-                    className="w-full max-w-xs py-4 bg-rose-600 text-white rounded-xl font-bold text-sm shadow-lg transition-all active:scale-95 mx-auto"
-                >
+                <button onClick={ctaClick} className="w-full max-w-xs py-4 bg-rose-600 text-white rounded-xl font-bold text-sm shadow-lg transition-all active:scale-95 mx-auto">
                     SABER MAIS VIA WHATSAPP
                 </button>
             </div>
