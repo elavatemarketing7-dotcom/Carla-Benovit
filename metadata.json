@@ -1,0 +1,8 @@
+{
+  "name": "Dr. Carla Benovit - Harmonização Facial Premium",
+  "description": "Uma landing page de alta conversão, focada no expert, com quiz interativo e estética premium para agendamentos de harmonização facial.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
