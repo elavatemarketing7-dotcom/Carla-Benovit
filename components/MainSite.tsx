@@ -77,8 +77,8 @@ const MainSite: React.FC = () => {
         </div>
       </nav>
 
-      {/* 1. HERO SECTION (AGORA ALVO DO 'SOBRE MIM') */}
-      <section id="sobre-mim" className="relative min-h-[70vh] md:min-h-[85vh] flex flex-col items-center pt-20 md:pt-28 px-6 overflow-hidden scroll-mt-20">
+      {/* 1. HERO SECTION */}
+      <section className="relative min-h-[70vh] md:min-h-[85vh] flex flex-col items-center pt-20 md:pt-28 px-6 overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-rose-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -mr-20 -mt-20"></div>
         
         <div className="relative z-10 text-center mb-8 max-w-2xl">
@@ -130,7 +130,7 @@ const MainSite: React.FC = () => {
           <div className="w-full md:w-7/12">
             <h2 className="text-2xl font-serif text-rose-950 mb-4 leading-tight">Sinta a Diferença</h2>
             <p className="text-sm text-gray-600 leading-relaxed mb-6">
-              Descubra como a beleza pode ser realçada com técnica e propósito. Resultados naturais e seguros por quem entende que cada detalhe importa.
+              Descubra como a beleza pode ser realçada with técnica e propósito. Resultados naturais e seguros por quem entende que cada detalhe importa.
             </p>
             <div className="flex items-center gap-3">
               <span className="text-lg">✨</span>
@@ -140,8 +140,8 @@ const MainSite: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. MINHA HISTÓRIA */}
-      <section id="minha-historia" className="py-16 px-6 scroll-mt-20">
+      {/* 3. SOBRE MIM (VOLTANDO AO ALVO ORIGINAL) */}
+      <section id="sobre-mim" className="py-16 px-6 scroll-mt-20">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row-reverse items-center gap-10 md:gap-16">
           <div className="w-full md:w-1/2 relative">
              <div className="absolute inset-0 border border-rose-100 rounded-[2.5rem] translate-x-3 translate-y-3 -z-10"></div>
@@ -164,7 +164,7 @@ const MainSite: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. PROVA VISUAL & HARMONIZAÇÃO DE 💚 COMPACTOS */}
+      {/* 4. PROVA VISUAL & HARMONIZAÇÃO DE 💚 */}
       <section id="prova-visual" className="py-16 px-6 bg-white overflow-hidden scroll-mt-20">
         <div className="max-w-5xl mx-auto text-center mb-10">
           <h2 className="text-3xl font-serif text-rose-950 mb-2">Transformações Reais</h2>
@@ -184,7 +184,7 @@ const MainSite: React.FC = () => {
           ))}
         </div>
         
-        {/* HARMONIZAÇÃO DE 💚 - GRID COMPACTO */}
+        {/* HARMONIZAÇÃO DE 💚 */}
         <div id="harmonizacao" className="max-w-5xl mx-auto mt-16 scroll-mt-24 border-t border-rose-50 pt-12">
             <h3 className="text-center text-xl font-serif mb-8 text-rose-900">Harmonização de 💚</h3>
             <div className="grid grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-2">
@@ -201,7 +201,7 @@ const MainSite: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. CTA COMPACTO */}
+      {/* 6. CTA */}
       <section className="py-12 px-6 bg-rose-950 text-white text-center rounded-[3rem] mx-4 md:mx-auto max-w-4xl shadow-2xl">
          <h2 className="text-2xl font-serif mb-6 px-4">Pronta para redescobrir sua melhor versão?</h2>
          <button 
@@ -212,9 +212,9 @@ const MainSite: React.FC = () => {
          </button>
       </section>
 
-      {/* 8. DEPOIMENTOS COMPACTOS */}
+      {/* 8. DEPOIMENTOS */}
       <section className="py-16 px-6 bg-[#faf9f6]">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5_5xl mx-auto">
           <h2 className="text-center text-2xl font-serif mb-10 text-rose-950">Depoimentos</h2>
           <div className="flex overflow-x-auto gap-4 pb-8 no-scrollbar">
              {TESTIMONIAL_IMAGES.map((img, i) => (
@@ -226,7 +226,7 @@ const MainSite: React.FC = () => {
         </div>
       </section>
 
-      {/* 9. LOCALIZAÇÃO COMPACTA */}
+      {/* 9. LOCALIZAÇÃO */}
       <section id="localizacao" className="py-16 px-6 bg-white scroll-mt-20">
         <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-2xl font-serif text-rose-950 mb-6">Onde nos Encontrar</h2>
@@ -255,7 +255,7 @@ const MainSite: React.FC = () => {
         </div>
       </section>
 
-      {/* FOOTER COMPACTO */}
+      {/* FOOTER */}
       <footer className="py-10 px-6 bg-[#faf9f6] text-center border-t border-rose-50">
         <h4 className="font-signature text-3xl text-rose-800 mb-4">Dra. {EXPERT_INFO.name}</h4>
         <div className="flex justify-center gap-6 text-[10px] uppercase font-bold tracking-widest text-rose-900/60">
